@@ -127,6 +127,33 @@ cRGB BlazingTrail::compute(uint8_t *step) {
   return color;
 }
 
+// Deku Tree
+DekuTree::DekuTree(void) {
+}
+
+cRGB DekuTree::compute(uint8_t *step) {
+  cRGB color;
+
+  if (*step >= 0xff - 30) {
+    color = hsvToRgb(38, 88, 69);
+  } else {
+    color = hsvToRgb(145, 84, 68);
+
+    color.b = min(*step * color.b / 255, 255);
+    color.g = min(*step * color.g / 255, 255);
+  }
+
+  if (*step >= 0xff - 30)
+    *step -= 1;
+  else if (*step >= 0x40)
+    *step -= 16;
+  else if (*step >= 32)
+    *step -= 32;
+  else
+    *step = 0;
+
+  return color;
+}
 }
 
 }

@@ -67,6 +67,13 @@ class BlazingTrail : public StalkerEffect::ColorComputer {
   cRGB compute(uint8_t *step) final;
 };
 
+class DekuTree : public StalkerEffect::ColorComputer {
+ public:
+  DekuTree(void);
+
+  cRGB compute(uint8_t *step) final;
+};
+
 }
 }
 
